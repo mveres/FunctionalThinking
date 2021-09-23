@@ -75,11 +75,11 @@ A rule in your app says new passwords must be at least 9 characters long. There'
 
 ```javascript
 const passwords = [
-  '123456',
-  'password',
-  'admin',
-  'freecodecamp',
-  'mypassword123',
+  "123456",
+  "password",
+  "admin",
+  "freecodecamp",
+  "mypassword123",
 ];
 
 let longPasswords = [];
@@ -120,7 +120,7 @@ const longPasswords = passwords.filter(isAtLeast9CharsLong);
 console.log(longPasswords); // logs ["freecodecamp", "mypassword123"];
 ```
 
-![Declarative vs Imperative](https://lh3.googleusercontent.com/wBUv0MjdoMWmY79xVOiNhyu0aqeO0in2aiR63BkzAwTLVaTsf08kaH9iTnZea2geiT8b4k44q-E_V7-LrX_FGQLOcOZaoz3TtnS_cIwZLMf3AdMLwAFnMPCS4Um0f_HCGkiIuIiwSC3L9S5xACOA3ddap_CPTqqSTRGeEtBjgbJAUH3b09f3xcwQJzY8xiF-NcKjGqvXC6jsy7bCKOtnVIy9OgpKq2Nq1jzUmVmbhkiDzPpXxqBJxP3vAcRvpZvH5BwqeE6fl6ijhW97KO6J4SiqXGlbqB90fm3sh1U7Duc9F5xf4dqgtP4Bj1IJSunEeez-ig1_u5I-UVdjNzkTgE5D2yIkcBn-dehmBGTwbbw1VgBhb78BoNmzy4Dco1D8oJ2Ani1z4RHs3JxNBxzOGiwHRizn6L7IE6lP-KZFVrFWlCm4TuhNG8L0LsSME5iGJRQpbWgphxzVJtTXPAJJwKYbanBGgdT06mADplZbiTtrxQDuj-FwKMozuL2LLZAtMPOkvunMa_LL9c-4Fbu_lwuGBJrmdybt_9STkMEEZhyZmJZvzLqaOsbFqYSy8_76D4VV9_0ePd9uZbRgOAvXJEqgW8FZywSFiGO_3O3R7Gd2YoEwDGYr7Gyh6Dw9SDNZebtZggsXa0PYczJGPDPfy1v04eZ3wo1rmMvdTxilX3XGKYFa60cw6BvqinG1zbEocZYUbRuXDLiPhFUY6ziLbHfQ=w715-h494-no?authuser=1)
+![Declarative vs Imperative](assets/Functional Vs Imperative.png)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -551,16 +551,16 @@ other_function() |> new_function() |> baz() |> bar() |> foo()
 `javacript`
 
 ```javascript
-import _ from 'lodash';
+import _ from "lodash";
 
 const users = [
-  { user: 'barney', age: 36 },
-  { user: 'fred', age: 40 },
-  { user: 'pebbles', age: 1 },
+  { user: "barney", age: 36 },
+  { user: "fred", age: 40 },
+  { user: "pebbles", age: 1 },
 ];
 
 const youngest = _.chain(users)
-  .sortBy('age')
+  .sortBy("age")
   .map((o) => `${o.user} is ${o.age}`)
   .head()
   .value();
