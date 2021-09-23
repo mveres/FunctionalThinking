@@ -231,7 +231,7 @@ class Car(val name: String)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-![persistent data structures diagram](https://i.stack.imgur.com/ywLvk.png)
+![persistent data structures diagram](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/persistet_data.png?raw=true)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
