@@ -120,7 +120,7 @@ const longPasswords = passwords.filter(isAtLeast9CharsLong);
 console.log(longPasswords); // logs ["freecodecamp", "mypassword123"];
 ```
 
-![Declarative vs Imperative](assets/Functional Vs Imperative.png)
+![Declarative vs Imperative](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/functiona_vs_imperative.png?raw=true)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -186,7 +186,7 @@ val car = Car("BMW")
 class Car(var name: String?)
 ```
 
-![concurency diagram](https://lh3.googleusercontent.com/q6KweHO4yq-Yxi0xBh_5yE6EMpDV-DIdl9pJaloqhANC6wle9lHyqOmM4jaABaKEPUyv666ihG0OIv1NXzBGIgmQFLVByDbr2jVkZoucgQiz2PKPRoVXSK1b_GW0eWV0uCpQbV-xPm8fxJ27Fcxyk5BlgpKUB_vrPbVqECBF1qzO05BYUyUxl_x5y4IRpI6Hrgfp4VxnUqvmzJ05Oli_Xxqr9T8nt3ouQVqRk6p0k8cCp18aSpczlEQxwhEaeNgBMWH0oDasDb_HqU9vrmvxiqWMNmRqSLgP2pFsP5TZmOcuFZBqwLfJ86Oowoq-134VlEn9EigTelrDoNkl577_UwFwkEWv1X8DSBWqseWo1iNUOCogHxqk2_GFyVubWJU7kbLyzvW_WIszw1mzPnDCAiS0VuWsNtCwVZSfYdrBiXUeq2OGtP8Xi2mBpcxaLpJSjveoD7UA-WsqONOkOaHTdyeGXe7No0w5AJgRGf6YcvbqOJTQ56d14OPoytfCHn0zHaVtKAnAf18uyOOZ17rdJy2dyMfU7pyine4u_vgsP9mivPSq88Le8sPwQ-murP4q8jUzG4jFljerMdYuT-6t75jBmNU6T9UCuNqz3Jw00Lo8fKtKfCKe1lvKJuVRG1kTl-v3433KOiLMCAz-JYvc9Kj6TcCTGdH-hwVUDUotr3xPhhEAbSfv0NFNA_JrxZNooR_OdOY54BG-PCXsFWSIZveB=w606-h391-no?authuser=1)
+![concurency diagram](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/fp_concurency_1.png?raw=true)
 
 - classic race condition read-modify write
 - OOP solution: locks and mutexes - hard to use and analyse => deadocks 💀
@@ -201,7 +201,7 @@ class Car(var name: String?)
 class Car(val name: String)
 ```
 
-![concurrency diagram](https://lh3.googleusercontent.com/w7gq1d9siDAq6A_p7lsYayKvyWan6KqP0AyCGWpOz4l-gB204a2lG-BHPQIvyN70tUBwcBugBiEY8vo_dNzPFwkPh4in2B6deaZsbmif9-dNvYAQR4lMmAv_pj1pMdrsX4QJoV3Bj833fHdYxen_UAAXUZTcOMPxhpCZaTWdhtjbg2td6r0uTRIrTfBC5ZBOolMyk0jqJzoTMv0lDS9FxRIG-NlsmQZMvM9AlrWMGNB7nuoQlresEmwcHls3H6oFjmvjjDgcVVnCTgtgKEyDAs52coT9RmbfVYPWUxSos3RjhB_htO2AphHrv-E2xusNJWWf_4TvomQ_0L2n5uvxkFaMfvu6cELAmY_6E90soyGQzysj5ZTc_L6fmjfKIw0U3IbK1zdb0AM7yq2gjTxf5X92QRf2_SdgIGjDrbpT_-MZCrlxR6W3_4n-MX0o_HttxzljUUMZ1GiB3utEnE4TQOXzxaZx09u5W5NSO01bllB2cGQwDeOdl42Iru-KoyGxnIsz715QDqNjlTomy64xJj0U10S09aBk8e9PVUewjpMgtor_eX31RE6CbhfixIPak2FFZ2Ai2RESqFwt5VQ8bRK07GJsgKjM-PlzXLJsxjACWgIIqMt2qKHLuQSZOL0dlmFqZIHxNErg_8ftzuxe5yklV--CUtW3-2D4jETQ3bNvOFPPvKVNtiSgUnwQmKtnZrO0x2Gr_G0yapkhSHMs0Uei=w702-h456-no?authuser=1)
+![concurrency diagram](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/fp_concurrency_2.png?raw=true)
 
 - T1 can compute without worry since T2 has another copy of `Car`
 - no locks necessary
