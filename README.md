@@ -5,6 +5,28 @@
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
+## Have you ever ... ?
+
+- used functions like `map`, `filter`, `find` ?
+
+- passed a function as parameter to another function?
+
+- returned a function from another function?
+
+- wrote `let` or `val` instead of `var`, or `const` instead of `let` ?
+
+- wrote a function that does not have a side effect?
+
+...
+Then:
+
+You might have thought about your program in a _functional_ manner without knowing :)
+
+You might have used FP features...
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 > "Learning ~Haskell~ Functional Programming is much like learning to program for the first time — it's fun! It forces you to think differently"
 
 (adapted quote from `Learn You a Haskell for Great Good!` book by Miran Lipovača)
@@ -231,7 +253,7 @@ class Car(val name: String)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-![persistent data structures diagram](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/persistet_data.png?raw=true)
+![persistent data structures diagram](https://github.com/mveres/FunctionalThinking2021/blob/6b7b2d76b5a7e130eae76b89f435809773f2fb6a/assets/persistent_data.png?raw=true)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -445,6 +467,20 @@ numbers
   .reduce(sum)
 ```
 
+`swift`
+
+```swift
+let apples = ["🍎", "🍏", "🍎", "🍏", "🍏"]
+let greenapples = apples.filter { $0 == "🍏"}
+print(greenapples)
+
+
+let oranges = apples.map { _ in "🍊" }
+print(oranges)
+// You map each apple to an orange producing a feast of oranges :].
+
+```
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ## Closures
@@ -514,7 +550,7 @@ let add1ToEach = List.map (sum 1)
 
 ## Chaining and Pipes
 
-![Chain all the things](https://i.ibb.co/vZ1dP4m/Screenshot-2021-07-29-at-17-23-12.png)
+![Chain all the things](https://github.com/mveres/FunctionalThinking2021/blob/main/assets/chain.png?raw=true)
 
 `|>` - pipe forward operator
 Passes the result of the left side to the function on the right side (forward pipe operator).
@@ -757,6 +793,45 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
+## SO... WHY?
+
+If Functional Programming is great why does everyone still use OOP?
+
+Fair question, my lord...but not quite true.
+
+<br /><br /><br /><br /><br />
+
+Even though (academic) functional programming languages are not mainstream (see Haskel, OCaml, F#, etc.)
+
+Alternative programming languages full of functional programming features have become popular:
+
+- Java -> Scala
+- Java -> Kotlin
+- C# -> F#
+- Objective C -> Swift
+
+- Elixir
+- Elm
+
+OR functional progamming features were added to mainstream languages:
+
+- Java + Streams
+- C# + Linq
+- Javascript: HoF have become popular, _make_ `const` _not_ `let`
+- Kotlin:
+  - `list()` is immutable by default; `mutableList()` for exlicit mutability
+  - HoF by default
+  - KotlinCompose declarative!
+  - `val` vs. `var`
+- Swift:
+  - HoF
+  - SwiftUI declarative!
+  - `let` vs. `var`
+
+etc.
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 ## Sources & Further Reading
 
 - https://www.freecodecamp.org/news/imperative-vs-declarative-programming-difference/
@@ -765,6 +840,8 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 - https://medium.com/free-code-camp/functional-programming-for-android-developers-part-3-f9e521e96788
 - https://www.freecodecamp.org/news/functional-programming-in-javascript/
 - https://www.freecodecamp.org/news/functional-programming-in-javascript-explained-in-plain-english/
+
+- great FP walkthrough for SWIFT programmers: https://www.raywenderlich.com/9222-an-introduction-to-functional-programming-in-swift#
 
 - "Programing F#" by Chris Smith
 - Functional Programming Principles in Scala by Martin Odersky (https://www.coursera.org/learn/progfun1)
@@ -775,7 +852,7 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-# Exercise
+# Exercises
 
 The following market data chunk was received from the provider:
 
@@ -792,8 +869,11 @@ EUR/JPY   120.3150         -1.1050     -0.91
 EUR/GBP     0.8604         -0.0032     -0.37
 ```
 
-1. Parse the string into a collection of objects. Prove that your implementation is correct with unit tests.
-   Example type of parsed data:
+## #1
+
+a)
+Parse the string into a collection of objects. Prove that your implementation is correct with unit tests.
+Example type of parsed data:
 
 `TypeScript`
 
@@ -808,4 +888,43 @@ type MarketData = {
 
 NOTE: Do not assume & hardcode the properties but parse them from the header.
 
-2. Retrieve the top 3 currency pairs with the biggest (percentage) changes from the data chunk. Prove that your implementation is correct with unit tests.
+b)
+Retrieve the top 3 currency pairs with the biggest (percentage) changes from the data chunk. Prove that your implementation is correct with unit tests.
+
+## #2
+
+**Mastermind**
+
+Write a program that can guess your code.
+
+Rules:
+
+- you think of a 4 character code using A, B, C or D. Valid code examples: AADB, ABDC, BBBD
+- write it down so that you don't forget it
+- the computer will start guessing and you will respond with hints
+- the hints are:
+  - "-" times a char is guessed correctly but not on its postion
+  - "+" times a char is guessed correctly on its exact position
+
+Example of a game:
+
+```
+// You have thought of "AADC"
+Computer: BBBB ?
+You: ↵  // you respond with nothing as the guess has no correct chars
+Computer: BBAA ?
+You: --↵  // you respond with '--' because the guess has 2 correct chars but not on the correct postion
+Computer: AABB ?
+You: ++↵ // you respond with '++' becasue the guess has 2 correct chars on their correct position
+Computer: DAAB ?
+You: --+↵ // you respond with '--+' because the guess has 2 correct chars that are not on their position, and 1 correct char on its correct position
+Computer: AADC ?
+You: ++++↵ // you respond with '++++' because the guess has all 4 chars correct and on their position
+Computer: Your code is AADC and I have cracked it in 5 attempts.
+```
+
+The purpose of your algorithm is to guess the code in as few attempts as possible by using your hints.
+
+Prove that the implementation is correct using unit tests.
+
+I'll buy you a beer if you use TDD :D
