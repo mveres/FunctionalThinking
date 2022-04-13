@@ -814,19 +814,25 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-The ~million dollar~ Techsylvania tickets question!
+## The ~million dollar~ Techsylvania tickets question!
+
 (find the chat and write your answear there)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-What is the result of the following Elixir computation:
+### What is the result of the following Elixir computation:
 
 ```elixir
 "Cr4ft1ng!"
 |> String.split("")
-|> Enum.filter(fn e -> Regex.match?(~r/\d/, e) end)
+|> Enum.filter(fn e -> Regex.match?(~r/\d/, e) end) # is digit?
 |> Enum.map(&String.to_integer/1)
 |> Enum.map(fn e -> if rem(e, 2) == 1, do: e * 2, else: e end)
 |> Enum.join("")
 ```
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+What is the meaning of life the universe and everything?
