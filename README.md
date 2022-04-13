@@ -5,83 +5,72 @@
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
+## What to expect from this talk:
+
+- a re-iteration of functional programming concepts and tools
+
+- explanations on why they are helpfull
+
+- examples in various programming languages (not just Elixir)
+
+- we'll scratch the surface, not going to dive too deep
+
+- particular discussions - feel free to raise any question
+
+- no good explanation about the meetup event avatar in the email notifications :)
+
+- 2 tickets to Techsylvania conference at the end
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 ## Have you ever ... ?
 
-- used functions like `map`, `filter`, `find` ?
+Even if not on purpose, you might have thought your programs in a _functional_ manner if you:
 
-- passed a function as parameter to another function?
-
-- returned a function from another function?
-
-- wrote `let` or `val` instead of `var`, or `const` instead of `let` ?
-
-- wrote a function that does not have a side effect?
-
-...
-Then:
-
-You might have thought about your program in a _functional_ manner without knowing :)
-
-You might have used FP features...
+- used functions like `map`, `filter`, `find`
+- passed a function as parameter to another function
+- returned a function from another function
+- wrote `let` or `val` instead of `var`, or `const` instead of `let`
+- wrote a pure function (that does not have a side effect)
+  ...
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-> "Learning ~Haskell~ Functional Programming is much like learning to program for the first time — it's fun! It forces you to think differently"
+> "Learning Haskell is much like learning to program for the first time — it's fun! It forces you to think differently"
 
-(adapted quote from `Learn You a Haskell for Great Good!` book by Miran Lipovača)
+(from `Learn You a Haskell for Great Good!` book by Miran Lipovača)
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-## What is functional programming
-
-- an umbrella for a range of programming concepts
-
-- a style of programming that treats programs as evaluation of mathematical functions and avoids _mutable state_ and side effects
+You can replace "Haskell" with "Functional Programming".
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-## Concepts
+## Functional Programming Concepts:
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+- declarative code
 
-- Declarative code
+- discipline of immutability
 
-  - worry about the _what_ and let the compiler and runtime worry about the _how_
-  - Explicitness
+- concurrency (imperative vs functional)
 
-  - code should be as **obvious** as possible
-  - **side effects** are to be isolated to avoid surprises
-  - Exceptions should be avoided
+- higher order functions
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-- Concurrency
-
-  - functional code is concurrent by default because of purity (no side-effects)
-  - CPU cores aren’t getting faster but multiply: concurrency to take advantage of multi-core architectures
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-- Higher Order Functions
-
-  - functions are first class citizens
-  - pass functions around just like you would a string or an int (filter, map, reduce)
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-- Immutability
-
-  - variables don't change (they are values)
-  - Once a **thing** is created, it is that thing **forever**
-  - create a new thing instead of changing
-  - this avoids side effects: if it can't change, you don't worry about its state
+- pure functions vs. side-effects
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ## Declarative code vs. Imperative code
 
 - worry about the _what_ and let the compiler and runtime worry about the _how_
+
+- explicitness - code should be as **obvious** as possible
+
+- **side effects** are to be isolated to avoid surprises
+
+- exceptions should be avoided
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -121,14 +110,15 @@ console.log(longPasswords); // logs ["freecodecamp", "mypassword123"];
 4. Then we check if that password is greater than or equal to 9 characters long.
 5. If it is, we put it into the longPasswords list.
 
-The same as the compiler we can reason about _how_ this program executes. This is not too hard at this level, but as complexity grows...
+The same as the compiler we can reason about _how_ this program executes.
+Although not very natural, this is not too _hard_ at this level, but as complexity grows it gets _harder_
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 **Declarative code (WHAT)**
 
 - a process of constantly defining _what_
-- more readable code that reflects what exactly we want
+- more readable code that reflects what exactly we want to achieve
 - combined with good names it can be very powerfull
 - achieves the same goal
 
@@ -142,8 +132,6 @@ const longPasswords = passwords.filter(isAtLeast9CharsLong);
 console.log(longPasswords); // logs ["freecodecamp", "mypassword123"];
 ```
 
-![Declarative vs Imperative](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/functiona_vs_imperative.png?raw=true)
-
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ## Immutability
@@ -152,26 +140,40 @@ console.log(longPasswords); // logs ["freecodecamp", "mypassword123"];
 
 (`Learn You a Haskell for Great Good!` book by Miran Lipovača)
 
+- use _values_ not _variables_ as they don't change
+- once a **thing** is created, it is that thing **forever**
+- create a new thing instead of changing
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-In FP there are no _variables_, everything is a _value_.
+In pure FP there are no _variables_, everything is a _value_.
 
-javascript
-`const a = 42;`
+`javascript`
 
-kotlin
-`val a = 42`
+```
+const a = 42;
+```
+
+`kotlin`
+
+```
+val a = 42
+```
+
+`elixir`
+
+```elixir
+life = 42
+```
 
 etc...
 
 - in functional programming languages everything is immutable by default
-- if I need to use a mutable variable I have to rethink the algorithm
+- personal rule: if I need to use a mutable variable I have to take a step back and rethink it
 
 Example - same as declarative vs imperative
 
-- variables don't change (they are values)
-- once a **thing** is created, it is that thing **forever**
-- create a new thing instead of changing
+All modern languages have built in support for this:
 
 `kotlin`
 
@@ -194,11 +196,19 @@ val car = Car("BMW")
 ```
 
 - you cannot change the name of a `Car` once it's created, you have to create a new `Car`
-- this makes your code predictable and reliable
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-### Concurency
+### Why is immutability important?
+
+- avoids side effects: if it can't change, you don't worry about its state
+- makes code more predictable and reliable
+- easier to reason about
+- multi-threaded programs are safer
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+### Concurrency
 
 **Mutable class**
 
@@ -208,7 +218,7 @@ val car = Car("BMW")
 class Car(var name: String?)
 ```
 
-![concurency diagram](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/fp_concurency_1.png?raw=true)
+![concurency diagram](https://raw.githubusercontent.com/mveres/FunctionalThinking/main/assets/fp_concurrency_1.png)
 
 - classic race condition read-modify write
 - OOP solution: locks and mutexes - hard to use and analyse => deadocks 💀
@@ -223,7 +233,7 @@ class Car(var name: String?)
 class Car(val name: String)
 ```
 
-![concurrency diagram](https://github.com/mveres/FunctionalThinking2021/blob/a932489e1c1f03b9dba3f08feeb0e5cd6202f8dc/assets/fp_concurrency_2.png?raw=true)
+![concurrency diagram](https://raw.githubusercontent.com/mveres/FunctionalThinking/main/assets/fp_concurrency_2.png)
 
 - T1 can compute without worry since T2 has another copy of `Car`
 - no locks necessary
@@ -235,11 +245,27 @@ class Car(val name: String)
 ### Global State & Real World
 
 - modifiable shared state must exists in realworld app
-- in FP we use state isolation and pushing side effects to the edges of our system (DB, filesystem, etc.)\.
+- in FP we use state isolation and pushing side effects to the edges of our system (DB, filesystem, etc.)
+
+### Q: can (web) frontend code be functional (i.e. immutable and pure)?
+
+YES and NO
+
+YES:
+
+- each update is a transformation that based on the input renders a new version of HTML that is passed to the frontend engine
+- e.g.:
+  - React that renders new output base on `props` and `state` changes
+  - HTML custom elements that render new output based on `props` (`attributes`) changes (simple HTML custom elements, Lit HTML, Vue...)
+  - functional programming languages for the frontend: ELM
+
+NO:
+
+- JS functions that change (mutate) HTML elements to render new states
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-### Immutability Downside
+### Immutability Downside - No free cake
 
 - many immutable objects may fill up memory and overload the garbage collector
 - this is solved by specialized data structures that provide immutability but are also optimized: ** Persistent Data Structures **
@@ -292,24 +318,37 @@ System.out.println(list4); // [hi]
 ### Pure Functions
 
 - it is pure if it depends only on the input and has no _side-effects_
+- a transformation rather than a mutation
 - closer to the mathematical definition of a function
 
-`kotlin`
+`typescript`
 
-```kotlin
-fun addImpure(x: Int): Int {    val y: Int = readNumFromFile()    return x + y}
+```typescript
+function addImpure(x: number): number {
+  const y = readNumFromFile();
+  return x + y;
+}
+// depends on the state of the world outside the function
 
-
-fun addPure(x: Int, y: Int): Int {    return x + y}
+function addPure(x: number, y: number): number {
+  return x + y;
+}
+// depends solely on the input
 ```
 
 - if a function is called twice with the same parameters, it returns the same result === **referential transparency**
 
 - it allows the compiler to reason about the program's behavior
-- it allows you to prove that a function is correct
+- it allows you to prove that a function is correct (tests, tests, tests)
 - build more complex functions by gluing simple functions together
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+### Testing in functional programming
+
+- is a pure function easier to write tests for?
+- no (fewer) mocks and stubs
+- no (fewer) dependency injection
 
 ### First Class Citizens
 
@@ -322,7 +361,7 @@ Functions can:
 - take other functions as parameters
 - create and return new functions
 
-☝️ These are called Higher Order functions.
+☝️ These are called Higher Order Functions.
 Ex: map, filter, reduce
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -332,36 +371,38 @@ Ex: map, filter, reduce
 `kotlin`
 
 ```kotlin
-fun add(x: Int, y: Int): Int { val result = x + y    writeResultToFile(result)    return result}
+fun add(x: Int, y: Int): Int {
+  val result = x + y
+  writeResultToFile(result)
+  return result
+}
 ```
 
 - it is modifying the state of the outside world (by writing to a file)
+- it needs a mock and dependecy injection for testing
 
 `side effect === !pure`
 
-Side effects examples:
-
-Give some examples
+- Functions with side effects depend on _historical context_ - they **harder** to reason about
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+Side effects examples:
 
 - mutate a variable scoped outside of the function
 - write to a file
 - write to a DB
 - delete something
 - send data through the network
-- ....
+- UI
+
+Can we get rid of these? Should our programs not use databases, filesystems, network, screens, etc. ?
+
+NO: our apps don't have any utility without these
+INSTEAD: isolate them.
+FP is about containing the side effects - pushing them at the edges of our systems so that the rest of the code remains pure and easy to reason about.
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-- Functions with side effects depend on _historical context_ - they **harder** to reason about
-
-Should our programs not use databases, filesystems, network, screens, etc. ?
-...
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-- FP is about containing the side effects - pushing them at the edges of our systems so that the rest of the code remains pure and easy to reason about.
 
 - pure functions can be called in any order, on different CPU cores (_concurrency!_)
 
@@ -415,11 +456,12 @@ public CompressionStrategy decideStrategy(Strategy strategy) {
 
 With HoF:
 
-`kotlin`
+`typescript`
 
-```kotlin
-fun compress(files: List<File>, applyStrategy: (List<File>) -> CompressedFiles){
-    applyStrategy(files)
+```typescript
+// also, simpler form of dependency injection
+function compress(files: File[], applyStrategy: (l: File[]) => CompressedFiles){
+  applyStrategy(files)
 }
 
 compress(fileList, {files -> // ZIP it})
@@ -479,21 +521,6 @@ let oranges = apples.map { _ in "🍊" }
 print(oranges)
 // You map each apple to an orange producing a feast of oranges :].
 
-```
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-## Closures
-
-- a value that is captured by the scope of a function - it closes over the value
-- valuable if functions need to be aware of the surrounding environment
-- you get encapsulation and other OOP like behaviors
-
-`javascript`
-
-```javascript
-const i = 7;
-const multiply = (n) => n * i;
 ```
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -580,9 +607,36 @@ other_function() |> new_function() |> baz() |> bar() |> foo()
 |> (printf "%A")
 ```
 
+### CASE STUDY: Elixir vs. F# partial application and forward pipe
+
+`elixir`
+
+- first param is injected
+
+```elixir
+
+Enum.map([1, 2, 3], fn x -> x * 2 end)
+[1, 2, 3] |> Enum.map(fn x -> x * 2 end)
+
+```
+
+VS.
+
+`F#`
+
+- last parameter is injected
+
+```F#
+List.map (fun x -> x + 1) [1; 2; 3]
+[1; 2; 3] |> List.map (fun x -> x + 1)
+
+```
+
+IMHO: Elixir's got it wrong...
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-- JavaScript doesn't have it... but [Lodash.chain](https://lodash.com/docs/4.17.15#chain)
+- JavaScript doesn't have it... but [Lodash.chain](https://lodash.com/docs/4.17.15#chain) can offer a similar but more limited behavior
 
 `javacript`
 
@@ -603,8 +657,6 @@ const youngest = _.chain(users)
 // => 'pebbles is 1'
 ```
 
-- Kotlin and Swift don't have it but they are language proposals
-
 `<|` - pipe backward operator - the less used brother
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -613,7 +665,7 @@ const youngest = _.chain(users)
 
 - it is a mechanism for checking a value against a pattern
 - a successful match can also deconstruct a value into its constituent parts
-- it is a more powerful version of the `switch` statement
+- it is a more powerful version of the `switch` statement from imperative programming
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -764,7 +816,7 @@ end
 - recursion + immutability = the FP alternative for loops + variables
 - possible issue: Stack Overflow
 - tail recursive patterns: accumulator, continuation
-- tail call optimization - javascript has it (ES6)
+- tail call optimization (ES6 javascript has it)
 
 ```javascript
 const isEven = (x) => x % 2 === 0;
@@ -793,47 +845,16 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-## SO... WHY?
-
-If Functional Programming is great why does everyone still use OOP?
-
-Fair question, my lord...but not quite true.
-
-<br /><br /><br /><br /><br />
-
-Even though (academic) functional programming languages are not mainstream (see Haskel, OCaml, F#, etc.)
-
-Alternative programming languages full of functional programming features have become popular:
-
-- Java -> Scala
-- Java -> Kotlin
-- C# -> F#
-- Objective C -> Swift
-
-- Elixir
-- Elm
-
-OR functional progamming features were added to mainstream languages:
-
-- Java + Streams
-- C# + Linq
-- Javascript: HoF have become popular, _make_ `const` _not_ `let`
-- Kotlin:
-  - `list()` is immutable by default; `mutableList()` for exlicit mutability
-  - HoF by default
-  - KotlinCompose declarative!
-  - `val` vs. `var`
-- Swift:
-  - HoF
-  - SwiftUI declarative!
-  - `let` vs. `var`
-
-etc.
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
 ## Sources & Further Reading
 
+- "Programing F#" by Chris Smith
+- Functional Programming Principles in Scala by Martin Odersky (https://www.coursera.org/learn/progfun1)
+- Introduction to Functional Programming by Erik Meijer (https://www.edx.org/course/introduction-functional-programming-delftx-fp101x-0)
+- https://fsharpforfunandprofit.com/
+- "Learn You a Haskell for Great Good!" book by Miran Lipovača
+- https://www.youtube.com/watch?v=iZLP4qOwY8I
+
+- https://fsharpforfunandprofit.com/
 - https://www.freecodecamp.org/news/imperative-vs-declarative-programming-difference/
 - https://www.freecodecamp.org/news/functional-programming-for-android-developers-part-1-a58d40d6e742
 - https://medium.com/free-code-camp/functional-programming-for-android-developers-part-2-5c0834669d1a
@@ -843,88 +864,21 @@ etc.
 
 - great FP walkthrough for SWIFT programmers: https://www.raywenderlich.com/9222-an-introduction-to-functional-programming-in-swift#
 
-- "Programing F#" by Chris Smith
-- Functional Programming Principles in Scala by Martin Odersky (https://www.coursera.org/learn/progfun1)
-- Introduction to Functional Programming by Erik Meijer (https://www.edx.org/course/introduction-functional-programming-delftx-fp101x-0)
-- https://fsharpforfunandprofit.com/
-- "Learn You a Haskell for Great Good!" book by Miran Lipovača
-- https://www.youtube.com/watch?v=iZLP4qOwY8I
-
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-# Exercises
+The ~million dollar~ Techsylvania tickets question!
+(find the chat and write your answear there)
 
-The following market data chunk was received from the provider:
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
+What is the result of the following Elixir computation:
+
+```elixir
+"Cr4ft1ng!"
+|> String.split("")
+|> Enum.filter(fn e -> Regex.match?(~r/\d/, e) end)
+|> Enum.map(&String.to_integer/1)
+|> Enum.map(fn e -> if rem(e, 2) == 1, do: e * 2, else: e end)
+|> Enum.join("")
 ```
-currencyPair price   changeAbsolute changePercent
-EUR/USD     1.0735         -0.0045     -0.42
-USD/JPY   112.0900          -0.494     -0.44
-GBP/USD     1.2476         -0.0010     -0.08
-AUD/USD     0.7648         -0.0032     -0.42
-USD/CAD     1.3112          0.0092      0.71
-USD/CHF     0.9927          0.0007      0.07
-USD/CNY     6.8599         -0.0050     -0.07
-EUR/JPY   120.3150         -1.1050     -0.91
-EUR/GBP     0.8604         -0.0032     -0.37
-```
-
-## #1
-
-a)
-Parse the string into a collection of objects. Prove that your implementation is correct with unit tests.
-Example type of parsed data:
-
-`TypeScript`
-
-```typescript
-type MarketData = {
-  currencyPair: string;
-  price: number;
-  changeAbsolute: number;
-  changePercent: number;
-}[];
-```
-
-NOTE: Do not assume & hardcode the properties but parse them from the header.
-
-b)
-Retrieve the top 3 currency pairs with the biggest (percentage) changes from the data chunk. Prove that your implementation is correct with unit tests.
-
-## #2
-
-**Mastermind**
-
-Write a program that can guess your code.
-
-Rules:
-
-- you think of a 4 character code using A, B, C or D. Valid code examples: AADB, ABDC, BBBD
-- write it down so that you don't forget it
-- the computer will start guessing and you will respond with hints
-- the hints are:
-  - "-" times a char is guessed correctly but not on its postion
-  - "+" times a char is guessed correctly on its exact position
-
-Example of a game:
-
-```
-// You have thought of "AADC"
-Computer: BBBB ?
-You: ↵  // you respond with nothing as the guess has no correct chars
-Computer: BBAA ?
-You: --↵  // you respond with '--' because the guess has 2 correct chars but not on the correct postion
-Computer: AABB ?
-You: ++↵ // you respond with '++' becasue the guess has 2 correct chars on their correct position
-Computer: DAAB ?
-You: --+↵ // you respond with '--+' because the guess has 2 correct chars that are not on their position, and 1 correct char on its correct position
-Computer: AADC ?
-You: ++++↵ // you respond with '++++' because the guess has all 4 chars correct and on their position
-Computer: Your code is AADC and I have cracked it in 5 attempts.
-```
-
-The purpose of your algorithm is to guess the code in as few attempts as possible by using your hints.
-
-Prove that the implementation is correct using unit tests.
-
-I'll buy you a beer if you use TDD :D
