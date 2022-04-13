@@ -277,17 +277,11 @@ NO:
 - always preserves the previous version of itself when modified
 - are immutable; operations do not update the structure, but yield a new updated version
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+Examples:
 
-![persistent data structures diagram](https://github.com/mveres/FunctionalThinking2021/blob/6b7b2d76b5a7e130eae76b89f435809773f2fb6a/assets/persistent_data.png?raw=true)
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-Example:
-
-- for Android there's [PCollections](https://github.com/hrldcpr/pcollections)
-- inspired on closure
+- for Android there's [PCollections](https://github.com/hrldcpr/pcollections) - inspired on closure
 - for Javascript https://immutable-js.com/
+- for Elixir most data structures are built in
 
 `Java`
 
@@ -349,6 +343,8 @@ function addPure(x: number, y: number): number {
 - is a pure function easier to write tests for?
 - no (fewer) mocks and stubs
 - no (fewer) dependency injection
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ### First Class Citizens
 
@@ -469,60 +465,6 @@ compress(fileList, {files -> // RAR it})
 ```
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-_Sum_ the _doubles_ of all the _odds_ from an array.
-
-`javascript`
-
-```javascript
-let sum = 0;
-
-for (int i = 0; i < numbers.length; i++) {
-  if (numbers[i] % 2 === 1) {
-    sum = sum + 2 * numbers[i];
-  }
-}
-
-numbers
-  .filter(n => n % 2 === 1)
-  .map(n => n * 2)
-  .reduce((sum, n) => sum + n);
-
-
-// it gets better with good naming
-
-const isOdd = n => n % 2 === 1;
-const double = n => n * 2;
-const sum = (a, b) => a + b;
-
-
-let s = 0;
-for (int i = 0; i < numbers.length; i++) {
-  if (isOdd(numbers[i])) {
-    s = sum(s, double(numbers[i]));
-  }
-}
-
-numbers
-  .filter(isOdd)
-  .map(double)
-  .reduce(sum)
-```
-
-`swift`
-
-```swift
-let apples = ["🍎", "🍏", "🍎", "🍏", "🍏"]
-let greenapples = apples.filter { $0 == "🍏"}
-print(greenapples)
-
-
-let oranges = apples.map { _ in "🍊" }
-print(oranges)
-// You map each apple to an orange producing a feast of oranges :].
-
-```
-
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ## Currying
