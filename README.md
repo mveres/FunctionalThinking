@@ -475,6 +475,20 @@ compress(fileList, {files -> // RAR it})
 
 > "Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument." - _a definition from the internet_
 
+`haskell`
+
+```haskell
+multThreeNums :: (Num a) => a -> a -> a -> a
+multThreeNums x y z = x * y * z
+
+let multTwoNumsWithNine = multThreeNums 9
+multTwoNumsWithNine 2 3
+-- 54
+let multWithEighteen = multTwoNumsWithNine 2
+multWithEighteen 10
+-- 180
+```
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 `javascript`
@@ -513,13 +527,34 @@ let add1ToEach = List.map (sum 1)
 
 ```
 
+`Elixir`
+
+- functions can have the same name with different arities => creating Haskell-style “compile time notational currying” is not possible
+- the first argument position is targeted - this effectively puts the first argument position in the role that is typically filled by the last argument position in other (curried) FP languages
+
+`elixir`
+
+```elixir
+Enum.map([1, 2, 3], fn x -> x * 2 end)
+[1, 2, 3] |> Enum.map(fn x -> x * 2 end)
+-- first param is injected
+```
+
+VS.
+
+`F#`
+
+```F#
+List.map (fun x -> x + 1) [1; 2; 3]
+[1; 2; 3] |> List.map (fun x -> x + 1)
+# last parameter is injected
+```
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 # Tools of FP
 
 ## Chaining and Pipes
-
-![Chain all the things](https://github.com/mveres/FunctionalThinking2021/blob/main/assets/chain.png?raw=true)
 
 `|>` - pipe forward operator
 Passes the result of the left side to the function on the right side (forward pipe operator).
@@ -548,33 +583,6 @@ other_function() |> new_function() |> baz() |> bar() |> foo()
 |> List.sum
 |> (printf "%A")
 ```
-
-### CASE STUDY: Elixir vs. F# partial application and forward pipe
-
-`elixir`
-
-- first param is injected
-
-```elixir
-
-Enum.map([1, 2, 3], fn x -> x * 2 end)
-[1, 2, 3] |> Enum.map(fn x -> x * 2 end)
-
-```
-
-VS.
-
-`F#`
-
-- last parameter is injected
-
-```F#
-List.map (fun x -> x + 1) [1; 2; 3]
-[1; 2; 3] |> List.map (fun x -> x + 1)
-
-```
-
-IMHO: Elixir's got it wrong...
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -706,8 +714,6 @@ type Shape =
     | Rectangle of width : float * length : float
     | Circle of radius : float
     | Prism of width : float * float * height : float
-
-
 
 type Tree =
     | Empty
