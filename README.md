@@ -1,4 +1,5 @@
-<br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 # Functional Thinking
 
@@ -793,7 +794,7 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-## Sources & Further Reading
+## Sources & Further Learning
 
 - "Programing F#" by Chris Smith
 - Functional Programming Principles in Scala by Martin Odersky (https://www.coursera.org/learn/progfun1)
@@ -816,12 +817,12 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 
 ## The ~million dollar~ Techsylvania tickets question!
 
-(find the chat and write your answear there)
+(find the chat and write your answer there)
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-### What is the result of the following Elixir computation:
+### What is the result of the following Elixir computation?
 
 ```elixir
 "Cr4ft1ng!"
@@ -836,3 +837,6 @@ console.log(tailRecursiveFilter([1, 3, 6, 8], isEven));
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 What is the meaning of life the universe and everything?
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
